@@ -52,7 +52,7 @@ namespace EjemploTask_Autos.Logica
 
         internal static void GirarIzquierda(Action encenderLuzGiroIzquierda)
         {
-          Task.Run( () => encenderLuzGiroIzquierda.Invoke())  ;
+          Task.Run(() => encenderLuzGiroIzquierda.Invoke());
         }
 
         internal static void GirarDerecha(Action encenderLuzGiroDerecha)

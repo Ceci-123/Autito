@@ -127,16 +127,14 @@ namespace EjemploTask_Autos
                 this.pb_luzDer.BeginInvoke((MethodInvoker)delegate ()
                 {
                     pb_luzDer.Visible = true;
-                    Thread.Sleep(5000);
-                    pb_luzDer.Visible = false;
+                    
                 });
 
             }
             else
             {
                 pb_luzDer.Visible = true;
-                Thread.Sleep(5000);
-                pb_luzDer.Visible = false;
+               
             }
         }
 
@@ -147,16 +145,14 @@ namespace EjemploTask_Autos
                 this.pb_luzIzquierda.BeginInvoke((MethodInvoker)delegate ()
                 {
                     pb_luzIzquierda.Visible = true;
-                    Thread.Sleep(5000);
-                    pb_luzIzquierda.Visible = false;
+                    
                 });
 
             }
             else
             {
                 pb_luzIzquierda.Visible = true;
-                Thread.Sleep(5000);
-                pb_luzIzquierda.Visible = false;
+                
             }
         }
 
