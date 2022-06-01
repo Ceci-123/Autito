@@ -31,11 +31,11 @@ namespace EjemploTask_Autos.Logica
                             autoCirculando = false;
                             informacionTablero.Invoke("Auto apagado correctamente");
                             cancelToken.ThrowIfCancellationRequested();
-                            Task.Delay(3000);
-                            kilometrajeAuto++;
-                            actualizarKilometraje.Invoke(KilometrajeAuto);
+                            
                         }
-
+                        Task.Delay(3000);
+                        kilometrajeAuto++;
+                        actualizarKilometraje.Invoke(KilometrajeAuto);
                     }
                     catch (Exception)
                     {

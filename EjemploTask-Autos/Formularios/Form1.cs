@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using EjemploTask_Autos.Logica;
+using System;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using EjemploTask_Autos.Logica;
 
 namespace EjemploTask_Autos
 {
@@ -123,7 +116,7 @@ namespace EjemploTask_Autos
                 catch (Exception)
                 {
 
-                } 
+                }
             }
         }
 
@@ -169,7 +162,7 @@ namespace EjemploTask_Autos
 
         private void btn_PrenderLuces_Click(object sender, EventArgs e)
         {
-          
+
             if (SistemaAuto.AutoCirculando)
             {
                 try
@@ -185,7 +178,7 @@ namespace EjemploTask_Autos
 
         private void btn_llover_Click(object sender, EventArgs e)
         {
-           
+
             if (SistemaAuto.AutoCirculando)
             {
                 try
@@ -208,13 +201,14 @@ namespace EjemploTask_Autos
                     if (pb_luces.Visible)
                     {
                         pb_luces.Visible = false;
+                        btn_PrenderLuces.Text = "Prender luces";
                     }
                     else
                     {
-                    pb_luces.Visible = true;
-
+                        pb_luces.Visible = true;
+                        btn_PrenderLuces.Text = "Apagar luces";
                     }
-                   
+
                 });
 
             }
