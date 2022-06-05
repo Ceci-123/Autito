@@ -1,6 +1,7 @@
 ﻿using EjemploTask_Autos.Logica;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EjemploTask_Autos
@@ -8,6 +9,7 @@ namespace EjemploTask_Autos
     public partial class Form1 : Form
     {
         CancellationTokenSource cts;
+        private Thread hiloLuces;
 
         public Form1()
         {
@@ -20,6 +22,7 @@ namespace EjemploTask_Autos
             SistemaAuto.AutoEncendido = true;
             pb_nafta.Visible = true;
             pb_temperatura.Visible = true;
+            btn_PrenderAuto.Text = "auto prendido";
         }
 
         private void btn_Conducir_Click(object sender, EventArgs e)
@@ -95,8 +98,9 @@ namespace EjemploTask_Autos
             {
                 try
                 {
-                    SistemaAuto.GirarIzquierda(EncenderLuzGiroIzquierda);
-
+                    // SistemaAuto.GirarIzquierda(EncenderLuzGiroIzquierda);
+                    hiloLuces = new Thread(() => SistemaAuto.GirarIzquierda(EncenderLuzGiroIzquierda));
+                    hiloLuces.Start();
                 }
                 catch (Exception)
                 {
@@ -127,15 +131,34 @@ namespace EjemploTask_Autos
                 this.pb_luzDer.BeginInvoke((MethodInvoker)delegate ()
                 {
                     pb_luzDer.Visible = true;
-                    
+                    timer1.Enabled = true;
+                    //Task.Run(() => {
+                    //    timer1.Enabled=true;
+                    //    Thread.Sleep(1000);
+                    //    timer1.Enabled = false;
+                    //                }    );
                 });
 
             }
             else
             {
                 pb_luzDer.Visible = true;
-               
+                timer1.Enabled = true;
             }
+        }
+
+        private void Timer1_Tick(object Sender, EventArgs e)
+        {
+
+            //if (pb_luzDer.Visible)
+            //{
+            //    pb_luzDer.Visible = false;
+            //}
+            //else
+            //{
+            //    pb_luzDer.Visible = true;
+            //}
+
         }
 
         private void EncenderLuzGiroIzquierda()
@@ -144,18 +167,19 @@ namespace EjemploTask_Autos
             {
                 this.pb_luzIzquierda.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    pb_luzIzquierda.Visible = true;
-                    
+                    pb_luzIzquierda.Visible = !pb_luzIzquierda.Visible;
+
                 });
 
             }
             else
             {
-                pb_luzIzquierda.Visible = true;
-                
+                pb_luzIzquierda.Visible = !pb_luzIzquierda.Visible;
+
             }
         }
 
+       
         private void btn_PrenderLuces_Click(object sender, EventArgs e)
         {
 

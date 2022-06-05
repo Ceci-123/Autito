@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_rpm = new System.Windows.Forms.PictureBox();
@@ -49,6 +50,7 @@
             this.lb_informacionTablero = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_kmIniciales = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_rpm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_velocimetro)).BeginInit();
@@ -273,6 +275,10 @@
             this.btn_kmIniciales.UseVisualStyleBackColor = true;
             this.btn_kmIniciales.Click += new System.EventHandler(this.btn_kmIniciales_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -336,5 +342,6 @@
         private System.Windows.Forms.Label lb_informacionTablero;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_kmIniciales;
+        private System.Windows.Forms.Timer timer1;
     }
 }
