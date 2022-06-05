@@ -10,6 +10,7 @@ namespace EjemploTask_Autos
     {
         CancellationTokenSource cts;
         private Thread hiloLuces;
+        private Thread hiloLuzDerecha;  
 
         public Form1()
         {
@@ -98,7 +99,6 @@ namespace EjemploTask_Autos
             {
                 try
                 {
-                    // SistemaAuto.GirarIzquierda(EncenderLuzGiroIzquierda);
                     hiloLuces = new Thread(() => SistemaAuto.GirarIzquierda(EncenderLuzGiroIzquierda));
                     hiloLuces.Start();
                 }
@@ -115,7 +115,9 @@ namespace EjemploTask_Autos
             {
                 try
                 {
-                    SistemaAuto.GirarDerecha(EncenderLuzGiroDerecha);
+                    hiloLuzDerecha = new Thread(() => SistemaAuto.GirarDerecha(EncenderLuzGiroDerecha));
+                    hiloLuzDerecha.Start();
+                    //SistemaAuto.GirarDerecha(EncenderLuzGiroDerecha);
                 }
                 catch (Exception)
                 {
@@ -130,34 +132,22 @@ namespace EjemploTask_Autos
             {
                 this.pb_luzDer.BeginInvoke((MethodInvoker)delegate ()
                 {
-                    pb_luzDer.Visible = true;
-                    timer1.Enabled = true;
-                    //Task.Run(() => {
-                    //    timer1.Enabled=true;
-                    //    Thread.Sleep(1000);
-                    //    timer1.Enabled = false;
-                    //                }    );
+                    pb_luzDer.Visible = !pb_luzDer.Visible;
+                    
+   
                 });
 
             }
             else
             {
-                pb_luzDer.Visible = true;
-                timer1.Enabled = true;
+                pb_luzDer.Visible = !pb_luzDer.Visible;
+               
             }
         }
 
         private void Timer1_Tick(object Sender, EventArgs e)
         {
 
-            //if (pb_luzDer.Visible)
-            //{
-            //    pb_luzDer.Visible = false;
-            //}
-            //else
-            //{
-            //    pb_luzDer.Visible = true;
-            //}
 
         }
 

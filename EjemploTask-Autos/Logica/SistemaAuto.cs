@@ -55,7 +55,7 @@ namespace EjemploTask_Autos.Logica
             //Task.Run(() => encenderLuzGiroIzquierda.Invoke());
             try
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 20; i++)
                 {
                    encenderLuzGiroIzquierda();
                     Thread.Sleep(1000);
@@ -69,7 +69,19 @@ namespace EjemploTask_Autos.Logica
 
         internal static void GirarDerecha(Action encenderLuzGiroDerecha)
         {
-            Task.Run(() => encenderLuzGiroDerecha.Invoke());
+            //Task.Run(() => encenderLuzGiroDerecha.Invoke());
+            try
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    encenderLuzGiroDerecha();
+                    Thread.Sleep(1000);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         internal static void PrenderLuces(Action encender)
